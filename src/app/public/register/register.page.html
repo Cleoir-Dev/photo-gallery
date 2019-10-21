@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content class="ion-padding">
+  <form id="form" #form="ngForm" (ngSubmit)="register(form)" method="post">
+    <ion-item>
+        <ion-label position="floating">First Name</ion-label>
+        <ion-input name="firstName" pattern="[a-zA-Z ]*" ngModel required></ion-input>
+    </ion-item>
+
+    <ion-text *ngIf="form.controls['firstName']?.invalid &&
+                    (form.controls['firstName']?.dirty ||
+                     form.controls['firstName']?.touched)"
+                     color="danger" 
+                     >
+        <span>Name is invalid!</span>
+    </ion-text>
+  
+    <ion-item>
+      <ion-label position="floating">Last Name</ion-label>
+      <ion-input name="lastName" minLenght="10" pattern="[a-zA-Z ]*" ngModel></ion-input>
+    </ion-item>
+
+    <ion-text *ngIf="form.controls['lastName']?.invalid &&
+                    (form.controls['lastName']?.dirty ||
+                     form.controls['lastName']?.touched)"
+                     color="danger" 
+                     >
+        <span>Full name is invalid!</span>
+    </ion-text>
+  
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input  type="email" 
+                  name="email"
+                  pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"
+                  ngModel  
+                  required>
+      </ion-input>
+    </ion-item>
+
+    <ion-text *ngIf="form.controls['email']?.invalid &&
+                    (form.controls['email']?.dirty ||
+                     form.controls['email']?.touched)"
+                     color="danger" 
+                     >
+        <span>Email is required!</span>
+    </ion-text>
+
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password"
+                 name="password"
+                 minLength="6"
+                 maxLength="12"
+                 pattern="(?=^.{6,12}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                 ngModel
+                 required>
+      </ion-input>
+    </ion-item>
+
+    <ion-text *ngIf="form.controls['password']?.invalid &&
+                    (form.controls['password']?.dirty ||
+                     form.controls['password']?.touched)"
+                     color="danger" 
+                     >
+        <span>Password is invalid!</span>
+    </ion-text>
+
+    <ion-item>
+        <ion-label position="floating">Confirmed Password</ion-label>
+        <ion-input type="password"
+                   name="confirmPassword"
+                   minLength="6"
+                   maxLength="12"
+                   pattern="(?=^.{6,12}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                   ngModel
+                   required>
+        </ion-input>
+      </ion-item>
+  
+      <ion-text *ngIf="form.controls['confirmPassword']?.value !==
+                       form.controls['password']?.value || 
+                       form.controls['confirmPassword']?.invalid &&
+                      (form.controls['confirmPassword']?.dirty ||
+                       form.controls['confirmPassword']?.touched)"
+                       color="danger" 
+                       >
+          <span>Password is invalid!</span>
+      </ion-text>
+    <br />
+    <ion-button expand="block" type="submit" color="success" [disabled]='form.invalid'>Register</ion-button>
+  </form>
+</ion-content> 
