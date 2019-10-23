@@ -22,19 +22,20 @@ user = new User();
   }
 
   login(form: NgForm) {
-      this.db.getDatabaseState().subscribe(data => {
-        if (data) {
-          this.db.getUserExist(form.controls['email'].value, form.controls['password'].value).then(users => {
-            this.user = users;
-            if (this.user.id) {
+    //descomentar para rodar no celular
+      // this.db.getDatabaseState().subscribe(data => {
+      //   if (data) {
+      //     this.db.getUserExist(form.controls['email'].value, form.controls['password'].value).then(users => {
+      //       this.user = users;
+      //       if (this.user.id) {
               this.authService.getToken();
-            }
-          }).catch(() => {
-             this.authService.login();
-          });
-        }
-      });
-      this.resetForm(form);
+      //       }
+      //     }).catch(() => {
+      //        this.authService.login();
+      //     });
+      //   }
+      // });
+      // this.resetForm(form);
   }
 
   resetForm(form: NgForm) {

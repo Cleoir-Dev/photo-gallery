@@ -12,12 +12,17 @@ export class Tab1Page implements OnInit  {
   constructor(private db: DatabaseService) { }
 
   ngOnInit() {
-    this.db.getDatabaseState().subscribe(data => {
-      if (data) {
-        this.db.getUsers().subscribe(users => {
-          this.users = users;
-        });
-      }
-    });
+    // this.db.getDatabaseState().subscribe(data => {
+    //   if (data) {
+    //     this.db.getUsers().subscribe(users => {
+    //       this.users = users;
+    //     });
+    //   }
+    // });
+  }
+
+  onRenderItems(event) {
+    console.log(`Moving item from ${event.detail.from} to ${event.detail.to}`);
+    event.detail.complete();
   }
 }
