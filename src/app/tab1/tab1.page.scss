@@ -4,9 +4,19 @@
 }
 
 .md-grid-vertical .mbsc-row {
-  margin: 2em 0;
+  margin: 1em 0;
   height: 6.4em;
-  padding: 20px;
+  padding: 5px;
   background: rgba(188, 141, 224, 0.58);
   border-radius: 20px;
+}
+
+.mbsc-col {
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
