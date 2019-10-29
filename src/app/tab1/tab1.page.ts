@@ -1,3 +1,4 @@
+import { MenuConfig } from './tab1-config';
 import { DatabaseService } from './../services/database.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from './../Models/user.model';
@@ -9,6 +10,7 @@ import { User } from './../Models/user.model';
 })
 export class Tab1Page implements OnInit  {
   users: User[] = [];
+  menu = MenuConfig;
   constructor(private db: DatabaseService) { }
 
   ngOnInit() {
@@ -21,8 +23,10 @@ export class Tab1Page implements OnInit  {
     // });
   }
 
-  onRenderItems(event) {
-    console.log(`Moving item from ${event.detail.from} to ${event.detail.to}`);
-    event.detail.complete();
-  }
+
+  //movimentar menum
+  // onRenderItems(event) {
+  //   console.log(`Moving item from ${event.detail.from} to ${event.detail.to}`);
+  //   event.detail.complete();
+  // }
 }
