@@ -7,7 +7,7 @@ export const MenuConfig: MenuItem[] = [
                     id: 1,
                     name: 'Barcode',
                     icon: 'md-barcode',
-                    routerLink: 'tab2'
+                    routerLink: 'barcode'
                 },
                 {
                     id: 2,

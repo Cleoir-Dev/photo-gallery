@@ -14,7 +14,12 @@ const routes: Routes = [
             path: '',
             loadChildren: () =>
               import('../tab1/tab1.module').then(m => m.Tab1PageModule)
-          }
+          },
+          {
+            path: 'barcode',
+            loadChildren: () =>
+              import('../code/barcode/barcode.module').then(m => m.BarcodePageModule)
+        },
         ]
       },
       {

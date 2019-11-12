@@ -17,12 +17,14 @@ import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
 import { SQLite } from '@ionic-native/sqlite/ngx';
  
 import { HttpClientModule } from '@angular/common/http';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,  IonicStorageModule.forRoot(), HttpClientModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,  IonicStorageModule.forRoot(), HttpClientModule, FormsModule],
   providers: [
     StatusBar,
     SplashScreen,
@@ -31,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     AuthGuardService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     SQLite,
-    SQLitePorter
+    SQLitePorter,
+    BarcodeScanner
   ],
   bootstrap: [AppComponent]
 })

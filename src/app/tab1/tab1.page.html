@@ -3,7 +3,7 @@
         <ion-row *ngFor="let col of menu" class="mbsc-row">
             <ion-col *ngFor="let item of col?.rows" size="3" class="mbsc-col">
                 <ion-fab-button>
-                    <ion-icon name="{{item?.icon}}"></ion-icon>
+                    <ion-icon name="{{item?.icon}}" [routerLink]="item.routerLink"></ion-icon>
                 </ion-fab-button>
                 <p>{{item?.name}}</p>
             </ion-col >
